@@ -5,6 +5,10 @@ export default class BlogService {
     return BlogRepository.create(blogData);
   }
 
+  static async getBlogs() {
+    return BlogRepository.find();
+  }
+
   static async getById(blogId) {
     return BlogRepository.findById(blogId);
   }

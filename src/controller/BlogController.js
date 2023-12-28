@@ -1,6 +1,14 @@
 import BlogService from "../service/BlogService.js";
 
-export const getBlog = async (req, res) => {
+export const getBlogs = async (req, res) => {
+  const blogData = await BlogService.getBlogs();
+  return res.status(200).send({
+    blog: blogData,
+    success: true,
+  });
+};
+
+export const getBlogById = async (req, res) => {
   const { blogId } = req.params;
   const blogData = await BlogService.getById(blogId);
   return res.status(200).send({
